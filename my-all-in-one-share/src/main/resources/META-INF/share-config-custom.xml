@@ -75,6 +75,40 @@
                 <subtype name="trx:fileTransferTarget" />
             </type>
         </types>
+
+        <!--
+             Used by "Manage Rules" -> "Add aspect" action.
+
+             If an aspect has been specified without a title element in the content model,
+             or you need to support multiple languages,
+             then an i18n file is needed on the Repo AMP/JAR extension side for the aspect to
+             be visible when creating rules:
+
+                custom_customModel.aspect.custom_myaspect.title=My Aspect
+
+             Used by the "Manage Aspects" action.
+
+             For the aspect to have a localised label add relevant i18n string(s) in a Share AMP/JAR extension:
+
+                aspect.custom_myaspect=My Aspect
+          -->
+        <aspects>
+            <!-- Aspects that a user can see -->
+            <visible>
+                <!-- custom aspects -->
+                <aspect name="my:publishToWeb" />
+                <aspect name="my:clientRelated" />
+            </visible>
+
+            <!-- Aspects that a user can add. Same as "visible" if left empty -->
+            <addable>
+            </addable>
+
+            <!-- Aspects that a user can remove. Same as "visible" if left empty -->
+            <removeable>
+            </removeable>
+        </aspects>
+
     </config>
 
 </alfresco-config>

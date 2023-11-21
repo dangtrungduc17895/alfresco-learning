@@ -45,6 +45,24 @@
         <type name="my:doc">
             <title>MyCompany Generic Document</title>
             <parent>cm:content</parent>
+            <associations>
+                <association name="my:relatedDocuments">
+                    <title>Related Documents</title>
+                    <source>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>my:doc</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+            </associations>
+            <mandatory-aspects>
+                <aspect>cm:generalclassifiable</aspect>
+            </mandatory-aspects>
+
         </type>
         <type name="my:marketingDoc">
             <title>MyCompany Marketing Document</title>
@@ -64,4 +82,33 @@
             <parent>my:marketingDoc</parent>
         </type>
     </types>
+
+    <aspects>
+        <aspect name="my:publishToWeb">
+            <title>MyCompany Website</title>
+            <properties>
+                <property name="my:publishedDate">
+                    <type>d:date</type>
+                </property>
+                <property name="my:isActive">
+                    <type>d:boolean</type>
+                    <default>false</default>
+                </property>
+            </properties>
+        </aspect>
+        <aspect name="my:clientRelated">
+            <title>MyCompany Client Metadata</title>
+            <properties>
+                <property name="my:clientName">
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                </property>
+                <property name="my:projectName">
+                    <type>d:text</type>
+                    <mandatory>false</mandatory>
+                </property>
+            </properties>
+        </aspect>
+    </aspects>
+
 </model>
